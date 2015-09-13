@@ -166,11 +166,11 @@ totalDiff20101940 = sorted(totalDiff20101940.items(), key=lambda x:x[1])
 
 print "\nDifference in different location between 1940 and 2010:"
 print "Top 10 - Worst"  # Wrong answer: Top 11 instead of Top 10.
-for key in range(0,10):
-    print key+1,totalDiff20101940[key]
+for num in range(0,10):
+    print num+1,totalDiff20101940[num]
 print "Top 10 - Best"  # Order of Top 10 - best is wrong.
-for key in range(0,10):
-    print key+1,totalDiff20101940[89-key]	
+for num in range(0,10):
+    print num+1,totalDiff20101940[89-num]	
 #Top 10 - Worst
 #  ('South Side Flats', -15879)
 #  ('Middle Hill', -15322)

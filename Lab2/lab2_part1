@@ -109,7 +109,7 @@ with con:
 	emp.execute("DROP TABLE IF EXISTS employment") 
 	emp.execute("CREATE TABLE employment(neighborhood TEXT,jobConstruction REAL,jobManufacturing REAL,jobRetail REAL,jobTransportUtilities REAL,jobInformation REAL,jobFinance REAL,jobScientific REAL,jobEduHealthSoc REAL,jobArtsRecreation REAL,jobPublicAdmin REAL,jobOther REAL)")
 	for key in jobConstruction:
-	        insertStatement = """INSERT INTO employment VALUES('%s',%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%d)""" % (key,jobConstruction[key],jobManufacturing[key],jobRetail[key],jobTransportUtilities[key],jobInformation[key],jobFinance[key],jobScientific[key],jobEduHealthSoc[key],jobArtsRecreation[key],jobPublicAdmin[key],jobOther[key])
+	        insertStatement = """INSERT INTO employment VALUES('%s',%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f)""" % (key,jobConstruction[key],jobManufacturing[key],jobRetail[key],jobTransportUtilities[key],jobInformation[key],jobFinance[key],jobScientific[key],jobEduHealthSoc[key],jobArtsRecreation[key],jobPublicAdmin[key],jobOther[key])
 	        emp.execute(insertStatement)
 
 	con.commit()

@@ -41,7 +41,7 @@ with con:
 ##########################################
 with con:
 	cur = con.cursor()    
-	cur.execute("SELECT neighborhood, MAX(pop2010) FROM popANDdensity")
+	cur.execute("SELECT neighborhood, MAX(pop2010) FROM popANDdensity WHERE pop2010=(SELECT MAX(pop2010)FROM popANDdensity)")
 	rows = cur.fetchall()
 	print "\nOutput: Neighborhood, MAX(pop2010)"
 	for row in rows:
@@ -53,7 +53,7 @@ with con:
 ##########################################
 with con:
 	cur = con.cursor()    
-	cur.execute("SELECT p.neighborhood, MAX(p.pop2010), e.jobScientific FROM popANDdensity p, employment e WHERE p.neighborhood = e.neighborhood")
+	cur.execute("SELECT p.neighborhood, MAX(p.pop2010), e.jobScientific FROM popANDdensity p, employment e WHERE p.neighborhood = e.neighborhood AND p.pop2010=(SELECT MAX(p.pop2010)FROM popANDdensity p)")
 	rows = cur.fetchall()
 	print "\nOutput: Neighborhood, MAX(pop2010), Scientific"
 	for row in rows:

@@ -23,10 +23,10 @@ for line in response: #  store names and ratings into movies(dict)
 	#print type(save[1])
 	#print int(save[1].replace("'", ""))
 	vote = int(save[1].replace("'", ""))
-	print vote
+	#print vote
 	votelist.append(vote) #  A list records all numbers of votes in order
 	name = save[3].split(" (",1) #  Only part of  names have quotation, so we can not split name with quotation
-	print name
+	#print name
 	namelist.append(name[0]) #  A list records all movies in order
 	count = count +1
 	print count

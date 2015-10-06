@@ -54,8 +54,8 @@ with con:
 	        keys = "%" + key + "%" #  Search name with part of key words
 	        insertStatement = 'UPDATE MoviesInfo SET PB = %d, DG = %d, WG = %d WHERE name like "%s"' % (moviesPB[key],moviesDG[key],moviesWG[key],keys) #  Add movies' names and ratings into database
 		budgetdb.execute(insertStatement)
-		insertStatement = 'DELETE FROM MoviesInfo WHERE PB="NULL"'
-		budgetdb.execute(insertStatement)
+		#insertStatement = 'DELETE FROM MoviesInfo WHERE PB="NULL"'
+		#budgetdb.execute(insertStatement)
 		print count
 		count = count +1
 		#print keys

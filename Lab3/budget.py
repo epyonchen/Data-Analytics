@@ -21,7 +21,7 @@ count = 0
 table = str(table)
 table = table.split("</tr><tr>\n</tr><tr>") #  Split each movie
 for row in table:
-    #print count
+
     temp = row.split("</td>")
     name = temp[2].split('summary">') #  Get movies' name
     name = name[1].strip("</a></b>")
@@ -34,6 +34,7 @@ for row in table:
     WG = temp[5].split('<td class="data">$',) # Get movies' worldwide gross
     WG = int(WG[1].replace(",",""))
     moviesWG[name] = WG
+    #print count
     #count = count +1
     #if count >5:
       # break
@@ -50,10 +51,13 @@ con = lite.connect(directoryForDB)
 with con:
 	budgetdb = con.cursor()
 	for key in moviesPB:
-	        keys = "%" + key + "%"
+	        keys = "%" + key + "%" #  Search name with part of key words
 	        insertStatement = 'UPDATE MoviesInfo SET PB = %d, DG = %d, WG = %d WHERE name like "%s"' % (moviesPB[key],moviesDG[key],moviesWG[key],keys) #  Add movies' names and ratings into database
 		budgetdb.execute(insertStatement)
-		#count = count +1
+		insertStatement = 'DELETE FROM MoviesInfo WHERE PB="NULL"'
+		budgetdb.execute(insertStatement)
+		print count
+		count = count +1
 		#print keys
 		#if count>5:
 		  #break

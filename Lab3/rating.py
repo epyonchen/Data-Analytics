@@ -37,15 +37,17 @@ with con:
 	   nameANDdate = save[3].split(" (",1) #  Only part of  names have quotation, so we can not split name with quotation
 	   name = nameANDdate[0].replace('"', '') #  Get names
 	   print name
-	   year = nameANDdate[1].replace("?","0") #  Get years
-	   year = int(re.sub("\D","",year) )
+	   year = nameANDdate[1].replace("?","0") #  Get years, one movie's year is ???? instead of numbers
+	   year = re.sub("\D","",year) #  Keep numbers only
+	   year = int(year[0:4]) #  Keep the first four year number
 	   print year
 	   count = count +1
 	   print count
-	   #if count>100: #  Limit numbers to store
+	   #if count>100: #  Limit number
 	     #  break
 	   insertStatement = 'INSERT INTO MoviesInfo(name, rate, vote, year) VALUES("%s",%f,%d,%d)' % (name,rate,vote,year) #  Add movies' names and ratings into database
 	   ratingdb.execute(insertStatement)
-		
+	   #insertStatement = 'DELETE FROM MoviesInfo WHERE vote < (SELECT max(vote) FROM MoviesInfo WHERE name LIKE "%s")' % (name) #  Delete duplicate and keep movie with max vote
+	   #ratingdb.execute(insertStatement)		
 	## NEEDED, if not, database does not update
 	con.commit()

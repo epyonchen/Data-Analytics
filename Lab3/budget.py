@@ -54,7 +54,7 @@ with con:
 		print count
 		count = count +1
 
-	insertStatement = 'DELETE FROM MoviesInfo WHERE PB="NULL"'
+	insertStatement = 'DELETE FROM MoviesInfo WHERE PB is null'
 	budgetdb.execute(insertStatement)
 	## NEEDED, if not, database does not update
 	con.commit()

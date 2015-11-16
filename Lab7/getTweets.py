@@ -27,6 +27,8 @@ if not os.path.exists(directoryForDB):# If database does not exist, creates item
 directoryForDB = directoryForDB + "twitter.db"
 con = lite.connect(directoryForDB)
 
+countnode = 0
+countlink = 0
 header, fhand = client.request(url, method="GET")
 jDoc = json.loads(fhand, encoding='utf8')
 with con:
@@ -48,6 +50,7 @@ with con:
 	    try:# If links exsist, ignore
 	        insertlink = "INSERT INTO link VALUES(%s,%s)"%(node,link)
 	        ids.execute(insertlink)
+	        countlink = countlink +1
 	    except:
 	        continue
 	    mark = 1# If node has links, set mark as 1
@@ -55,5 +58,8 @@ with con:
 	    try:# If node exsist, ignore
 	        insertnode = "INSERT INTO node VALUES(%s)"%(node)
 	        ids.execute(insertnode)
+	        countnode = countnode +1
 	    except:
 	       continue
+
+print "Add %d nodes, %d links"%(countnode,countlink) # Count nodes and links every test

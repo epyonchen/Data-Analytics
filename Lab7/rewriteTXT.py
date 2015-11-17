@@ -1,3 +1,4 @@
+# Set twitter.txt as default before run this code
 import os
 import sqlite3 as lite
 

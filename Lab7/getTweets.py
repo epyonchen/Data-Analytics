@@ -18,7 +18,7 @@ q = "a" # what you are querying
 lat = "40.452454" # latitude 
 lng = "79.952352" # longitude 
 r = "1000" # radius 
-url = """https://api.twitter.com/1.1/search/tweets.json?q=%s&include_entities=true&result_type=recent&geocode=%s,%s,%smi""" % (q,lat,lng,r)
+url = """https://api.twitter.com/1.1/search/tweets.json?q=%s&include_entities=true&result_type=recent&count=100&geocode=%s,%s,%smi""" % (q,lat,lng,r)
 
 con = None
 directoryForDB = "D:/Workshop/homework/Data Analytics/Lab 7/"

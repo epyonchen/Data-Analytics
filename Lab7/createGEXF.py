@@ -22,10 +22,10 @@ nodes = getDB.fetchall()
 getDB.execute("SELECT * FROM link")# Get links from database
 links = getDB.fetchall()
 for node in nodes:# Insert nodes into fileline list
-    fileline.insert(8,'			<node id="%s" label="%s"/>\n'%(node[0],node[0]))
+    fileline.insert(8,'			<node id="%s" label="%s" start="%s"/>\n'%(node[0],node[0],node[1]))
     countnode= countnode + 1
 for link in links:# Insert links into fileline list
-    fileline.insert(len(fileline)-3,'			<edge source="%s" target="%s"/>\n'%(link[0],link[1]))
+    fileline.insert(len(fileline)-3,'			<edge source="%s" target="%s" start="%s"/>\n'%(link[0],link[1],link[2]))
     countlink = countlink + 1    
 
 directoryForGEXF = directory + "twitter.GEXF"# GEXF name

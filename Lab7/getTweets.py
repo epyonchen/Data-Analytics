@@ -18,7 +18,7 @@ q = "ISIS"# what you are querying
 lat = "40.444687"# latitude 
 lng = "-79.956148"# longitude 
 r = "500"# radius
-date = "2015-11-15" 
+date = "2015-11-15"# Until date 
 url = """https://api.twitter.com/1.1/search/tweets.json?q=%s&include_entities=true&until=%s&result_type=recent&count=100&geocode=%s,%s,%smi""" % (q,date,lat,lng,r)# Get 100 tweets in each request
 
 con = None# connect databse

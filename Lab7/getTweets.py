@@ -14,11 +14,12 @@ access_token_secret = "nCuL0rmy7nuW5dAAGoAciPcDTOMXZK9jMqi45LLHerjik"
 consumer = oauth.Consumer(key=consumer_key, secret=consumer_secret)
 token = oauth.Token(key=access_token_key, secret=access_token_secret)
 client = oauth.Client(consumer, token)
-q = "b"# what you are querying
-lat = "40.452454"# latitude 
-lng = "79.952352"# longitude 
-r = "1000"# radius 
-url = """https://api.twitter.com/1.1/search/tweets.json?q=%s&include_entities=true&result_type=recent&count=100&geocode=%s,%s,%smi""" % (q,lat,lng,r)# Get 100 tweets in each request
+q = "ISIS"# what you are querying
+lat = "40.444687"# latitude 
+lng = "-79.956148"# longitude 
+r = "500"# radius
+date = "2015-11-15" 
+url = """https://api.twitter.com/1.1/search/tweets.json?q=%s&include_entities=true&until=%s&result_type=recent&count=100&geocode=%s,%s,%smi""" % (q,date,lat,lng,r)# Get 100 tweets in each request
 
 con = None# connect databse
 directoryForDB = "D:/Workshop/homework/Data Analytics/Lab 7/"
